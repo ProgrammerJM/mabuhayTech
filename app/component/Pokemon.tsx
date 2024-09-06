@@ -1,5 +1,4 @@
 import React from "react";
-import List from "./List";
 
 function Pokemon({ data }: any) {
   return (
@@ -21,7 +20,6 @@ function Pokemon({ data }: any) {
           </div>
         ))}
       </div>
-      <List data={data} />
     </div>
   );
 }

@@ -1,17 +1,30 @@
 import React from "react";
+// import { data } from "../data/data";
 
-function TypeSelection({ array: [] }) {
-  const array = array;
-
+function TypeSelection({ array }: any) {
   return (
     <div>
-      <select>
-        {array.map((pokemon: any) => (
-          <option key={pokemon.id} value={pokemon.name}>
-            {pokemon.name}
-          </option>
+      {array
+        .filter(
+          (value: any, index: any, self: any) => self.indexOf(value) === index
+        )
+        .map((pokemon: any) => (
+          <div key={pokemon.id} className="flex flex-col">
+            <h2>{pokemon.name}</h2>
+          </div>
         ))}
-      </select>
+      {/* <h1 className="text-black font-semibold dark:text-white">Types</h1>
+      <ul>
+        {data.map((pokemon: any) => (
+          <li key={pokemon.id}>
+            {pokemon.types.map((type: string) => (
+              <span key={type} className="flex">
+                {type} - {pokemon.name}
+              </span>
+            ))}
+          </li>
+        ))}
+      </ul> */}
     </div>
   );
 }
