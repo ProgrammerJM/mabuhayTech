@@ -1,27 +1,46 @@
 import React from "react";
 import TypeSelection from "./TypeSelection";
 
-function List({ data }: any) {
-  let array = [];
+function List({
+  data,
+}: {
+  data: { id: number; name: string; image: string; types: string[] }[];
+}) {
+  const array: { id: number; name: string; image: string; types: string[] }[] =
+    [];
 
   {
-    data.map((pokemon: any) => (
-      <div key={pokemon.id} className="flex flex-col">
-        <h2>{pokemon.name}</h2>
-        {array.push(pokemon)}
-      </div>
-    ));
+    data.map(
+      (pokemon: {
+        id: number;
+        name: string;
+        image: string;
+        types: string[];
+      }) => (
+        <div key={pokemon.id} className="flex flex-col">
+          <h2>{pokemon.name}</h2>
+          {array.push(pokemon)}
+        </div>
+      )
+    );
   }
 
   return (
     <div>
       <div className="flex justify-between">
         {/* {array} */}
-        {array.map((pokemon: any) => (
-          <div key={pokemon.id} className="flex my-4">
-            <h2>{pokemon.name}</h2>
-          </div>
-        ))}
+        {array.map(
+          (pokemon: {
+            id: number;
+            name: string;
+            image: string;
+            types: string[];
+          }) => (
+            <div key={pokemon.id} className="flex my-4">
+              <h2>{pokemon.name}</h2>
+            </div>
+          )
+        )}
       </div>
       <TypeSelection array={array} />
     </div>

@@ -1,7 +1,18 @@
 import React from "react";
 // import { data } from "../data/data";
 
-function TypeSelection({ array }: any) {
+interface Pokemon {
+  id: number;
+  name: string;
+  image: string;
+  types: string[];
+}
+
+function TypeSelection({
+  array,
+}: {
+  array: Pokemon[]; // Update the type definition to include the 'array' property as an array of Pokemon objects
+}) {
   console.log(array);
   return (
     <div>
@@ -16,7 +27,7 @@ function TypeSelection({ array }: any) {
         ))} */}
       <h1 className="text-black font-semibold dark:text-white">Types</h1>
       <ul>
-        {array.map((pokemon: any) => (
+        {array.map((pokemon: Pokemon) => (
           <li key={pokemon.id}>
             {pokemon.types.map((type: string) => (
               <span key={type} className="flex">
